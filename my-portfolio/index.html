@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Johnny Yang | Business Insight Analyst</title>
+  <style>
+    :root {
+      --ink: #172033;
+      --muted: #687386;
+      --accent: #0c756b;
+      --accent-dark: #07554f;
+      --highlight: #f28c5b;
+      --surface: #ffffff;
+      --background: #f2f5f3;
+      --line: #dce5e1;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--background);
+      color: var(--ink);
+      font-family: "Trebuchet MS", sans-serif;
+      line-height: 1.6;
+    }
+
+    header {
+      align-items: center;
+      background: rgba(255, 255, 255, 0.94);
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      padding: 1.15rem 7%;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+
+    .logo {
+      color: var(--accent-dark);
+      font-family: Georgia, serif;
+      font-size: 1.35rem;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    nav a {
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      background: var(--accent-dark);
+      color: var(--surface);
+      padding: 6.5rem 7% 5.5rem;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(2.7rem, 7vw, 5.5rem);
+      font-weight: normal;
+      letter-spacing: -0.04em;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      color: #d7ebe6;
+      font-size: 1.25rem;
+      max-width: 700px;
+    }
+
+    .eyebrow {
+      color: var(--highlight);
+      font-size: 0.78rem;
+      font-weight: bold;
+      letter-spacing: 0.16em;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .contact-links a {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+      color: var(--surface);
+      text-decoration: none;
+    }
+
+    .contact-links a:hover {
+      border-color: var(--highlight);
+      color: var(--highlight);
+    }
+
+    main {
+      margin: 0 auto;
+      max-width: 1180px;
+      padding: 5rem 7%;
+    }
+
+    section {
+      margin-bottom: 5.5rem;
+    }
+
+    .section-heading {
+      align-items: baseline;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      gap: 1rem;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+      padding-bottom: 0.8rem;
+    }
+
+    section h2 {
+      color: var(--accent-dark);
+      font-family: Georgia, serif;
+      font-size: 2.25rem;
+      font-weight: normal;
+    }
+
+    .section-label {
+      color: var(--muted);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .intro {
+      color: var(--muted);
+      font-size: 1.12rem;
+      max-width: 800px;
+    }
+
+    .job {
+      border-left: 3px solid var(--accent);
+      margin-bottom: 2.5rem;
+      padding-left: 1.5rem;
+    }
+
+    .job:last-child {
+      margin-bottom: 0;
+    }
+
+    .job-header {
+      align-items: flex-start;
+      display: flex;
+      gap: 1rem;
+      justify-content: space-between;
+      margin-bottom: 0.8rem;
+    }
+
+    .job h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .company {
+      color: var(--accent-dark);
+      font-weight: bold;
+    }
+
+    .location,
+    .date {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .date {
+      flex-shrink: 0;
+      text-align: right;
+    }
+
+    .job ul,
+    .development ul {
+      color: var(--muted);
+      padding-left: 1.2rem;
+    }
+
+    .job li,
+    .development li {
+      margin-bottom: 0.6rem;
+    }
+
+    .development {
+      background: var(--surface);
+      border-top: 4px solid var(--highlight);
+      padding: 1.6rem;
+    }
+
+    .development h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .development .institution {
+      color: var(--accent-dark);
+      font-weight: bold;
+    }
+
+    .skills-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .skill-group {
+      background: var(--surface);
+      padding: 1.5rem;
+    }
+
+    .skill-group h3 {
+      color: var(--accent-dark);
+      font-size: 1rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .skill-group p {
+      color: var(--muted);
+    }
+
+    .education {
+      align-items: flex-start;
+      display: flex;
+      gap: 2rem;
+      justify-content: space-between;
+    }
+
+    .education h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .education p {
+      color: var(--muted);
+    }
+
+    footer {
+      background: var(--accent-dark);
+      color: var(--muted);
+      color: #c9ded9;
+      padding: 2rem 7%;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .hero {
+        padding: 4.5rem 7% 4rem;
+      }
+
+      .job-header,
+      .education {
+        display: block;
+      }
+
+      .date {
+        margin-top: 0.35rem;
+        text-align: left;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="logo" href="#home">Johnny Yang</a>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#development">Development</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <p class="eyebrow">Business Insight Analyst / Audience Strategy</p>
+    <h1>Johnny Yang</h1>
+    <p>I turn audience, campaign, and customer data into clear recommendations that help teams make smarter decisions.</p>
+    <div class="contact-links">
+      <a href="mailto:Johyang97@gmail.com">Johyang97@gmail.com</a>
+      <a href="tel:+15163766666">(516) 376-6666</a>
+      <a href="https://www.linkedin.com/in/johyang97" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+  </section>
+
+  <main>
+    <section id="experience">
+      <div class="section-heading">
+        <h2>Work Experience</h2>
+        <span class="section-label">Selected roles</span>
+      </div>
+
+      <article class="job">
+        <div class="job-header">
+          <div>
+            <h3>Business Insight Analyst, Digital Marketing</h3>
+            <p class="company">CMI Media Group | WPP</p>
+            <p class="location">New York, NY</p>
+          </div>
+          <p class="date">Feb 2026 - Present</p>
+        </div>
+        <ul>
+          <li>Lead end-to-end campaign reporting and performance analysis across NNI digital marketing initiatives, evaluating cross-channel effectiveness across Search, Display, CTV, OLV, and Social to drive optimization recommendations.</li>
+          <li>Optimize monthly and quarterly reporting workflows through automation, standardized templates, and dashboard enhancements in Domo and Looker, improving reporting efficiency and data consistency.</li>
+          <li>Design and implement a standardized SOP for Crossix Mapping deliverables on the Tecentriq brand, introducing a semi-automated Excel workflow that reduced turnaround time and improved data accuracy.</li>
+          <li>Serve as primary point of contact for external vendors and measurement partners, managing communication, resolving data discrepancies, and ensuring consistency in campaign reporting.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="job-header">
+          <div>
+            <h3>Senior Data Analyst, Audience Strategy</h3>
+            <p class="company">Initiative | IPG</p>
+            <p class="location">New York, NY</p>
+          </div>
+          <p class="date">Dec 2021 - Apr 2025</p>
+        </div>
+        <ul>
+          <li>Leveraged first-party CRM data and third-party sources, including Acxiom Infobase and MRI Simmons, to develop audience insights for clients including the FDA, Salesforce, Nike, Amazon, Carnival Cruise Line, Lego, and Nintendo.</li>
+          <li>Applied Logistic Regression and Random Forest models to support lookalike and propensity modeling, identifying high-potential audiences for acquisition and conversion strategies.</li>
+          <li>Conducted Market Basket Analysis and audience segmentation to uncover purchasing behavior, identify high-value audiences, and support campaign planning.</li>
+          <li>Built addressable audiences within Snowflake by harmonizing psychographic, demographic, and firmographic datasets to support targeting and media strategy.</li>
+          <li>Translated analytical findings into strategic recommendations for internal teams and client stakeholders through audience profiling and insight development.</li>
+          <li>Created an SQL-based automation process that streamlined reporting workflows and reduced manual effort for recurring analyses.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="development">
+      <div class="section-heading">
+        <h2>Professional Development</h2>
+        <span class="section-label">2020 - 2021</span>
+      </div>
+      <article class="development">
+        <h3>Tableau Data Analytics Certificate</h3>
+        <p class="institution">New York University Tandon School of Engineering</p>
+        <p class="date">Nov 2020 - Mar 2021</p>
+        <ul>
+          <li>Cleaned, manipulated, visualized, and analyzed raw data using Google Sheets, MySQL, and Tableau.</li>
+          <li>Conducted exploratory data analysis to provide stakeholders with evidence of user success characteristics and support the case for additional funding.</li>
+          <li>Created DDL and DML SQL queries from formal and ad hoc data requests to draw insights and make data-driven recommendations.</li>
+          <li>Built a Tableau Story with interactive dashboards to report comparative analysis to technical and non-technical stakeholders.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="skills">
+      <div class="section-heading">
+        <h2>Skills</h2>
+        <span class="section-label">Tools &amp; methods</span>
+      </div>
+      <div class="skills-grid">
+        <article class="skill-group">
+          <h3>Proficient in</h3>
+          <p>SQL (Snowflake, MySQL), Tableau, Google Sheets, Microsoft Office, Excel (VLOOKUP, Pivot Tables), data visualization, business analytics, database normalization, and exploratory data analysis (EDA).</p>
+        </article>
+        <article class="skill-group">
+          <h3>Developing knowledge</h3>
+          <p>HTML, CSS, Python, machine learning, and artificial intelligence.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="section-heading">
+        <h2>Education</h2>
+        <span class="section-label">Academic background</span>
+      </div>
+      <div class="education">
+        <div>
+          <h3>Stony Brook University</h3>
+          <p>B.S. Health Science (Informatics), Minor in Technological System Management</p>
+        </div>
+        <p class="location">Stony Brook, NY</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Johnny Yang</p>
+  </footer>
+</body>
+</html>
