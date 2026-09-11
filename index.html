@@ -22,6 +22,10 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       background: var(--background);
       color: var(--ink);
@@ -65,7 +69,7 @@
     }
 
     .hero {
-      background: var(--accent-dark);
+      background: linear-gradient(135deg, #07554f 0%, #0c756b 58%, #155f70 100%);
       color: var(--surface);
       padding: 6.5rem 7% 5.5rem;
       position: relative;
@@ -83,6 +87,32 @@
       color: #d7ebe6;
       font-size: 1.25rem;
       max-width: 700px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 2rem;
+    }
+
+    .button {
+      border: 1px solid var(--highlight);
+      color: var(--surface);
+      display: inline-block;
+      font-weight: bold;
+      padding: 0.7rem 1.15rem;
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .button:hover {
+      background: var(--highlight);
+      color: var(--ink);
+    }
+
+    .button.secondary {
+      border-color: rgba(255, 255, 255, 0.55);
     }
 
     .eyebrow {
@@ -150,6 +180,17 @@
       color: var(--muted);
       font-size: 1.12rem;
       max-width: 800px;
+    }
+
+    .about-copy {
+      display: grid;
+      gap: 1rem;
+      max-width: 850px;
+    }
+
+    .about-copy p {
+      color: var(--muted);
+      font-size: 1.08rem;
     }
 
     .job {
@@ -255,6 +296,102 @@
       color: var(--muted);
     }
 
+    .projects-grid {
+      display: grid;
+      gap: 1.25rem;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--accent);
+      box-shadow: 0 8px 24px rgba(23, 32, 51, 0.06);
+      display: flex;
+      flex-direction: column;
+      padding: 1.6rem;
+    }
+
+    .project-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .project-tools {
+      color: var(--accent-dark) !important;
+      font-size: 0.9rem;
+      font-weight: bold;
+      margin-top: auto;
+    }
+
+    .project-card .button {
+      align-self: flex-start;
+      background: var(--accent-dark);
+      border-color: var(--accent-dark);
+      margin-top: 0.5rem;
+    }
+
+    .project-card .button:hover {
+      background: var(--highlight);
+      border-color: var(--highlight);
+    }
+
+    .contact-layout {
+      display: grid;
+      gap: 2.5rem;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    }
+
+    .contact-details p {
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .contact-details a {
+      color: var(--accent-dark);
+      font-weight: bold;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .contact-form label {
+      font-weight: bold;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      border: 1px solid var(--line);
+      font: inherit;
+      margin-top: 0.35rem;
+      padding: 0.75rem;
+      width: 100%;
+    }
+
+    .contact-form textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .contact-form .button {
+      background: var(--accent-dark);
+      border-color: var(--accent-dark);
+      cursor: pointer;
+      justify-self: start;
+    }
+
+    .contact-form .button:hover {
+      background: var(--highlight);
+      border-color: var(--highlight);
+    }
+
     footer {
       background: var(--accent-dark);
       color: var(--muted);
@@ -292,6 +429,11 @@
       .skills-grid {
         grid-template-columns: 1fr;
       }
+
+      .projects-grid,
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -300,10 +442,12 @@
     <a class="logo" href="#home">Johnny Yang</a>
     <nav aria-label="Main navigation">
       <ul>
+        <li><a href="#about">About</a></li>
         <li><a href="#experience">Experience</a></li>
-        <li><a href="#development">Development</a></li>
+        <li><a href="#projects">Projects</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -311,7 +455,12 @@
   <section class="hero" id="home">
     <p class="eyebrow">Business Insight Analyst / Audience Strategy</p>
     <h1>Johnny Yang</h1>
+    <p>Business Insights Analyst | Data Analytics | Digital Marketing</p>
     <p>I turn audience, campaign, and customer data into clear recommendations that help teams make smarter decisions.</p>
+    <div class="hero-actions">
+      <a class="button" href="#projects">View My Work</a>
+      <a class="button secondary" href="#contact">Contact Me</a>
+    </div>
     <div class="contact-links">
       <a href="mailto:Johyang97@gmail.com">Johyang97@gmail.com</a>
       <a href="tel:+15163766666">(516) 376-6666</a>
@@ -320,6 +469,17 @@
   </section>
 
   <main>
+    <section id="about">
+      <div class="section-heading">
+        <h2>About Me</h2>
+        <span class="section-label">Data with direction</span>
+      </div>
+      <div class="about-copy">
+        <p>I am a Business Insights Analyst with experience using data to evaluate digital marketing performance, identify trends, and translate findings into actionable recommendations.</p>
+        <p>With a background in Health Science and data analytics, I bring a thoughtful, structured approach to solving business questions. My toolkit includes SQL, Python, Excel, Tableau and data visualization, analytics, and digital marketing measurement.</p>
+      </div>
+    </section>
+
     <section id="experience">
       <div class="section-heading">
         <h2>Work Experience</h2>
@@ -409,6 +569,85 @@
           <p>B.S. Health Science (Informatics), Minor in Technological System Management</p>
         </div>
         <p class="location">Stony Brook, NY</p>
+      </div>
+    </section>
+
+ <section id="projects">
+  <div class="section-heading">
+    <h2>Projects</h2>
+    <span class="section-label">Selected work</span>
+  </div>
+
+  <div class="projects-grid">
+
+    <article class="project-card">
+      <h3>Instacart Exploratory Data Analysis</h3>
+      <p>
+        Analyzed Instacart grocery-order data to uncover customer shopping
+        behaviors and purchasing patterns. Cleaned and prepared multiple datasets,
+        addressed missing and duplicate values, analyzed ordering behavior, and
+        identified frequently purchased and reordered products through exploratory
+        data analysis and visualization.
+      </p>
+      <p class="project-tools">
+        Tools: Python, Pandas, Matplotlib, Jupyter Notebook, Data Cleaning, EDA
+      </p>
+      <a class="button" href="#contact">Project Details</a>
+    </article>
+
+    <article class="project-card">
+      <h3>Megaline Statistical Data Analysis</h3>
+      <p>
+        Analyzed customer behavior and revenue across Surf and Ultimate prepaid
+        telecom plans. Calculated monthly usage and revenue, evaluated customer
+        behavior using descriptive statistics and visualizations, and performed
+        statistical hypothesis testing to compare plan revenue and regional
+        differences.
+      </p>
+      <p class="project-tools">
+        Tools: Python, Pandas, NumPy, SciPy, Matplotlib, Jupyter Notebook,
+        Statistical Analysis, Hypothesis Testing
+      </p>
+      <a class="button" href="#contact">Project Details</a>
+    </article>
+
+    <article class="project-card">
+      <h3>Professional Portfolio Website</h3>
+      <p>
+        Designed and deployed a responsive personal portfolio showcasing my
+        professional experience, technical skills, education, and analytics
+        projects.
+      </p>
+      <p class="project-tools">
+        Tools: HTML, CSS, Git, GitHub, GitHub Pages, VS Code
+      </p>
+      <a class="button" href="#home">View This Project</a>
+    </article>
+
+  </div>
+</section>
+ 
+    <section id="contact">
+      <div class="section-heading">
+        <h2>Contact</h2>
+        <span class="section-label">Let&apos;s connect</span>
+      </div>
+      <div class="contact-layout">
+        <div class="contact-details">
+          <p>I am open to conversations about business insights, data analytics, and digital marketing opportunities.</p>
+          <p><strong>Email:</strong> <a href="mailto:Johyang97@gmail.com">Johyang97@gmail.com</a></p>
+          <p><strong>Phone:</strong> <a href="tel:+15163766666">(516) 376-6666</a></p>
+          <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/johyang97" target="_blank" rel="noopener noreferrer">linkedin.com/in/johyang97</a></p>
+        </div>
+        <form class="contact-form" action="#contact" method="post">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+          <button class="button" type="submit">Send Message</button>
+        </form>
       </div>
     </section>
   </main>
